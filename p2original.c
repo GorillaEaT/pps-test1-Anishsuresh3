@@ -1,5 +1,5 @@
 #include<stdio.h>
-int harsha()
+int input()
 {
   int q;
   scanf("%d",&q);
@@ -17,8 +17,8 @@ void output(int c,int d,int sum)
 int main()
 {
   int a,b,s;
-  a=harsha();
-  b=harsha();
+  a=input();
+  b=intput();
   s=add(a,b);
   output(a,b,s);
   return 0;
