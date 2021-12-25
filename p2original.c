@@ -18,7 +18,7 @@ int main()
 {
   int a,b,s;
   a=input();
-  b=intput();
+  b=input();
   s=add(a,b);
   output(a,b,s);
   return 0;
