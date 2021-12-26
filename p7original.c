@@ -33,7 +33,7 @@ void out_put(int n,int a[n],int sum)
 int main()
 {
   int n=input_array_size();
-  int a[50];
+  int a[n];
   input_array(n,a);
   int s=sum_n_arrays(n,a);
   out_put(n,a,s);
