@@ -21,7 +21,7 @@ int main()
 {
   int a,b,c,large;
   input(&a,&b,&c);
-  cmp1(a,b,c,&large);
+  cmp(a,b,c,&large);
   printf("Largest value: %d\n",large);
   return 0;
 }

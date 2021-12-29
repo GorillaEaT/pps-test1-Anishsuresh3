@@ -28,6 +28,6 @@ int main()
   a=input();
   b=input();
   c=input();
-  printf("Largest value: %d\n",cmp1(a,b,c));
+  printf("Largest value: %d\n",cmp(a,b,c));
   return 0;
 }
