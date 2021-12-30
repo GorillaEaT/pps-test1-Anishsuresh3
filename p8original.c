@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<math.h>
+//#include<math.h>
 float input()
 {
   float f;
@@ -7,9 +7,20 @@ float input()
   scanf("%f",&f);
   return f;
 }
-float my_sqrt(float n)
+/*float my_sqrt(float n)
 {
   return sqrt(n);
+}*/
+float my_sqrt1(float n)
+{
+  float s=n/2;
+  float t=0;
+  while (s!=t)
+  {
+    t=s;
+    s=(n/t + t)/2;
+  }
+  return s;
 }
 void output(float n, float sqrt_result)
 {
@@ -18,7 +29,7 @@ void output(float n, float sqrt_result)
 int main()
 {
   float n=input();
-  float r=my_sqrt(n);
+  float r=my_sqrt1(n);
   output(n,r);
   return 0;
 }

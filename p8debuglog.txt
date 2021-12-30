@@ -1,0 +1,116 @@
+ gcc -g p8original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x869: file p8original.c, line 31.
+(gdb) r
+Starting program: /home/runner/pps-test1-Anishsuresh3-2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p8original.c:31
+31    float n=input();
+(gdb) s
+input () at p8original.c:4
+4   {
+(gdb) n
+6     printf("Enter the number:\n");
+(gdb) n
+Enter the number:
+7     scanf("%f",&f);
+(gdb) n
+16
+8     return f;
+(gdb) n
+9   }
+(gdb) n
+main () at p8original.c:32
+32    float r=my_sqrt1(n);
+(gdb) s
+my_sqrt1 (n=16) at p8original.c:16
+16    float s=n/2;
+(gdb) n
+17    float t=0;
+(gdb) n
+18    while (s!=t)
+(gdb) n
+20      t=s;
+(gdb) n
+21      s=(n/t + t)/2;
+(gdb) p t
+$1 = 8
+(gdb) n
+18    while (s!=t)
+(gdb) p s
+$2 = 5
+(gdb) n
+20      t=s;
+(gdb) n
+21      s=(n/t + t)/2;
+(gdb) p t
+$3 = 5
+(gdb) n
+18    while (s!=t)
+(gdb) p s
+$4 = 4.0999999
+(gdb) n
+20      t=s;
+(gdb) n
+21      s=(n/t + t)/2;
+(gdb) p t
+$5 = 4.0999999
+(gdb) n
+18    while (s!=t)
+(gdb) p s
+$6 = 4.00121975
+(gdb) n
+20      t=s;
+(gdb) n
+21      s=(n/t + t)/2;
+(gdb) p t
+$7 = 4.00121975
+(gdb) n
+18    while (s!=t)
+(gdb) p s
+$8 = 4
+(gdb) n
+20      t=s;
+(gdb) n
+21      s=(n/t + t)/2;
+(gdb) p t
+$9 = 4
+(gdb) n
+18    while (s!=t)
+(gdb) p s
+$10 = 4
+(gdb) n
+23    return s;
+(gdb) n
+24  }
+(gdb) n
+main () at p8original.c:33
+33    output(n,r);
+(gdb) s
+output (n=16, sqrt_result=4) at p8original.c:27
+27    printf("square root of %f if %f\n",n,sqrt_result);
+(gdb) n
+square root of 16.000000 if 4.000000
+28  }
+(gdb) n
+main () at p8original.c:34
+34    return 0;
+(gdb) n
+35  }(gdb) q
