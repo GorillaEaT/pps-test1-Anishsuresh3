@@ -4,7 +4,7 @@ void input_two_strings(char *a,char *b)
     printf("Enter two strings:\n");
     scanf("%s%s",a,b);
 }
-int strcmpp(char *a,char *b)
+/*int strcmpp(char *a,char *b)
 {
     int i,c=0,d=0;
     for (i=0;a[i]!='\0';i++)
@@ -16,7 +16,7 @@ int strcmpp(char *a,char *b)
     else if(c>d)
       return 0;
     return -1;
-}
+}*/
 int strcmp(char *a,char *b)
 {
   for(int i=0;a[i]!='\0' || b[i]!='\0';i++)

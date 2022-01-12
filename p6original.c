@@ -8,8 +8,8 @@ int intput_n()
 }
 int sum_n(int n)
 {
-  int i,sum=0;
-  for(i=0;i<=n;i++)
+  int i,sum=1;
+  for(i=1;i<=n;i++)
     sum+=i;
   return sum;
 }

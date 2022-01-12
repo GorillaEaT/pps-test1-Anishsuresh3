@@ -12,7 +12,7 @@ int add(int x,int y)
 }
 void output(int c,int d,int sum)
 {
-  printf("sum of %d+%d is %d",c,d,sum);
+  printf("sum of %d+%d is %d\n",c,d,sum);
 }
 int main()
 {

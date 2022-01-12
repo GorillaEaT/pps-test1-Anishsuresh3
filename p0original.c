@@ -5,6 +5,6 @@ int main()
   printf("Enter your name:\n");
   //gets(s);
   scanf("%[^\n]",s);
-  printf("%s",s);
+  printf("%s\n",s);
   return 0;
 }

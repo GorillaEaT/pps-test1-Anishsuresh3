@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main()
 {
-  printf("ANISH");
+  printf("ANISH\n");
   return 0;
 }

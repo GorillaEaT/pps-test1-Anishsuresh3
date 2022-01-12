@@ -11,7 +11,7 @@ void add(int a,int b,int *sum)
 }
 void output(int a,int b,int sum)
 {
-  printf("sum of %d+%d is %d",a,b,sum);
+  printf("sum of %d+%d is %d\n",a,b,sum);
 }
 int main()
 {

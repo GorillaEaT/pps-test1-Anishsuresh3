@@ -17,11 +17,15 @@ void cmp1(int a,int b,int c,int *large)
 {
   *large=(a>b)?(a>c?a:c):(b>c?b:c);
 }
+void output(int large)
+{
+  printf("Largest value: %d\n",large);
+}
 int main()
 {
   int a,b,c,large;
   input(&a,&b,&c);
   cmp(a,b,c,&large);
-  printf("Largest value: %d\n",large);
+  output(large);
   return 0;
 }

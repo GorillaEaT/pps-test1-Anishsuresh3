@@ -22,12 +22,17 @@ int cmp1(int a,int b,int c)
   l=(a>b)?(a>c?a:c):(b>c?b:c);
   return l;
 }
+void output(int l)
+{
+  printf("Largest value: %d\n",l);
+}
 int main()
 {
-  int a,b,c;
+  int a,b,c,r;
   a=input();
   b=input();
   c=input();
-  printf("Largest value: %d\n",cmp(a,b,c));
+  r=cmp(a,b,c);
+  output(r);
   return 0;
 }
