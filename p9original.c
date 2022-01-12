@@ -17,6 +17,17 @@ int strcmpp(char *a,char *b)
       return 0;
     return -1;
 }
+int strcmp(char *a,char *b)
+{
+  for(int i=0;a[i]!='\0' || b[i]!='\0';i++)
+  {
+    if(b[i]>a[i])
+       return 1;
+    else if(a[i]>b[i])
+       return 0;
+  }
+  return -1;
+}
 void output(char *a,char *b,int result)
 {
     if(result==1)
@@ -29,7 +40,7 @@ void output(char *a,char *b,int result)
 int main(){
     char a[20],b[20];
     input_two_strings(a,b);
-    int r=strcmpp(a,b);
+    int r=strcmp(a,b);
     output(a,b,r);
     return 0;
 }
