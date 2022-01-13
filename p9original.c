@@ -24,15 +24,15 @@ int strcmp(char *a,char *b)
     if(b[i]>a[i])
        return 1;
     else if(a[i]>b[i])
-       return 0;
+       return -1;
   }
-  return -1;
+  return 0;
 }
 void output(char *a,char *b,int result)
 {
     if(result==1)
       printf("%s is greater than %s\n",b,a);
-    else if(result==0)
+    else if(result==-1)
       printf("%s is greater than %s\n",a,b);
     else
       printf("%s is equal to %s\n",a,b);

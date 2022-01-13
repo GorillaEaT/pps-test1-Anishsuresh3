@@ -16,7 +16,7 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x869: file p8original.c, line 31.
+Breakpoint 1 at 0x876: file p8original.c, line 31.
 (gdb) r
 Starting program: /home/runner/pps-test1-Anishsuresh3-2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
@@ -36,66 +36,72 @@ Enter the number:
 8     return f;
 (gdb) n
 9   }
+(gdb) p f
+$1 = 16
 (gdb) n
 main () at p8original.c:32
 32    float r=my_sqrt1(n);
+(gdb) p n
+$2 = 16
 (gdb) s
 my_sqrt1 (n=16) at p8original.c:16
 16    float s=n/2;
 (gdb) n
 17    float t=0;
 (gdb) n
-18    while (s!=t)
+18    while (fabs(s-t) > 0.000001)
+(gdb) n
+20      t=s;
+(gdb) p s
+$3 = 8
+(gdb) n
+21      s=(n/t + t)/2;
+(gdb) p t
+$4 = 8
+(gdb) n
+18    while (fabs(s-t) > 0.000001)
+(gdb) p s
+$5 = 5
 (gdb) n
 20      t=s;
 (gdb) n
 21      s=(n/t + t)/2;
 (gdb) p t
-$1 = 8
+$6 = 5
 (gdb) n
-18    while (s!=t)
+18    while (fabs(s-t) > 0.000001)
 (gdb) p s
-$2 = 5
+$7 = 4.0999999
 (gdb) n
 20      t=s;
 (gdb) n
 21      s=(n/t + t)/2;
 (gdb) p t
-$3 = 5
+$8 = 4.0999999
 (gdb) n
-18    while (s!=t)
+18    while (fabs(s-t) > 0.000001)
 (gdb) p s
-$4 = 4.0999999
+$9 = 4.00121975
 (gdb) n
 20      t=s;
 (gdb) n
 21      s=(n/t + t)/2;
 (gdb) p t
-$5 = 4.0999999
+$10 = 4.00121975
 (gdb) n
-18    while (s!=t)
+18    while (fabs(s-t) > 0.000001)
 (gdb) p s
-$6 = 4.00121975
+$11 = 4
 (gdb) n
 20      t=s;
 (gdb) n
 21      s=(n/t + t)/2;
 (gdb) p t
-$7 = 4.00121975
+$12 = 4
 (gdb) n
-18    while (s!=t)
+18    while (fabs(s-t) > 0.000001)
 (gdb) p s
-$8 = 4
-(gdb) n
-20      t=s;
-(gdb) n
-21      s=(n/t + t)/2;
-(gdb) p t
-$9 = 4
-(gdb) n
-18    while (s!=t)
-(gdb) p s
-$10 = 4
+$13 = 4
 (gdb) n
 23    return s;
 (gdb) n
@@ -114,3 +120,8 @@ main () at p8original.c:34
 34    return 0;
 (gdb) n
 35  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 268] will be killed.
+
+Quit anyway? (y or n) y

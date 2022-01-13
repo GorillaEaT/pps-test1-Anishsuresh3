@@ -16,111 +16,66 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x8d4: file p9original.c, line 29.
+Breakpoint 1 at 0x8e9: file p9original.c, line 40.
 (gdb) r
 Starting program: /home/runner/pps-test1-Anishsuresh3-2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p9original.c:29
-29  int main(){
+Breakpoint 1, main () at p9original.c:40
+40  int main(){
 (gdb) n
-31      input_two_strings(a,b);
+42      input_two_strings(a,b);
 (gdb) s
-input_two_strings (a=0x7ffdd46f2760 "\001", b=0x7ffdd46f2780 "@\t MvU")
-    at p9original.c:4
+input_two_strings (a=0x7ffe7f8d92d0 "\001", 
+    b=0x7ffe7f8d92f0 "`\t\240u\"V") at p9original.c:4
 4       printf("Enter two strings:\n");
 (gdb) n
 Enter two strings:
 5       scanf("%s%s",a,b);
 (gdb) n
-hello world
+hello
+world
 6   }
 (gdb) n
-main () at p9original.c:32
-32      int r=strcmpp(a,b);
+main () at p9original.c:43
+43      int r=strcmp(a,b);
+(gdb) p a
+$1 = "hello\000\000\000\255\t\240u\"V\000\000@\313\331\030"
+(gdb) p b
+$2 = "world\000\000\000\200\006\240u\"V\000\000\360\223\215\177"
 (gdb) s
-strcmpp (a=0x7ffdd46f2760 "hello", b=0x7ffdd46f2780 "world") at p9original.c:9
-9       int i,c=0,d=0;
-(gdb) n
-10      for (i=0;a[i]!='\0';i++)
-(gdb) n
-11          c+=a[i];
-(gdb) n
-10      for (i=0;a[i]!='\0';i++)
-(gdb) n
-11          c+=a[i];
-(gdb) p c
-$1 = 104
-(gdb) n
-10      for (i=0;a[i]!='\0';i++)
-(gdb) n
-11          c+=a[i];
-(gdb) p c
-$2 = 205
-(gdb) n
-10      for (i=0;a[i]!='\0';i++)
-(gdb) n
-11          c+=a[i];
-(gdb) p c
-$3 = 313
-(gdb) n
-10      for (i=0;a[i]!='\0';i++)
-(gdb) n
-11          c+=a[i];
-(gdb) p c
-$4 = 421
-(gdb) n
-10      for (i=0;a[i]!='\0';i++)
-(gdb) n
-12      for (int j=0;b[j]!='\0';j++)
-(gdb) n
-13          d+=b[j];
-(gdb) n
-12      for (int j=0;b[j]!='\0';j++)
-(gdb) n
-13          d+=b[j];
-(gdb) p d
-$5 = 119
-(gdb) n
-12      for (int j=0;b[j]!='\0';j++)
-(gdb) n
-13          d+=b[j];
-(gdb) p d
-$6 = 230
-(gdb) n
-12      for (int j=0;b[j]!='\0';j++)
-(gdb) n
-13          d+=b[j];
-(gdb) p d
-$7 = 344
-(gdb) n
-12      for (int j=0;b[j]!='\0';j++)
-(gdb) n
-13          d+=b[j];
-(gdb) p d
-$8 = 452
-(gdb) n
-12      for (int j=0;b[j]!='\0';j++)
-(gdb) n
-14      if(c<d)
-(gdb) n
-15        return 1;
-(gdb) n
-19  }
-(gdb) n
-main () at p9original.c:33
-33      output(a,b,r);
-(gdb) s
-output (a=0x7ffdd46f2760 "hello", b=0x7ffdd46f2780 "world", result=1)
+strcmp (a=0x7ffe7f8d92d0 "hello", b=0x7ffe7f8d92f0 "world")
     at p9original.c:22
-22      if(result==1)
+22    for(int i=0;a[i]!='\0' || b[i]!='\0';i++)
 (gdb) n
-23        printf("%s is greater than %s\n",b,a);
+24      if(b[i]>a[i])
+(gdb) p i
+$3 = 0
+(gdb) n
+25         return 1;
+(gdb) n
+30  }
+(gdb) n
+main () at p9original.c:44
+44      output(a,b,r);
+(gdb) p r
+$4 = 1
+(gdb) s
+output (a=0x7ffdda334570 "hello", b=0x7ffdda334590 "world", result=1)
+    at p9original.c:33
+33      if(result==1)
+(gdb) n
+34        printf("%s is greater than %s\n",b,a);
 (gdb) n
 world is greater than hello
-28  }
+39  }
 (gdb) n
-main () at p9original.c:34
-34      return 0;
+main () at p9original.c:45
+45      return 0;
 (gdb) n
-35  }(gdb) q 
+46  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 140] will be killed.
+
+Quit anyway? (y or n) y

@@ -1,5 +1,4 @@
-GNU bash, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
-gcc -g p11original.c
+ gcc -g p11original.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -17,15 +16,15 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x9ac: file p11original.c, line 44.
+Breakpoint 1 at 0x9ac: file p11original.c, line 43.
 (gdb) r
 Starting program: /home/runner/pps-test1-Anishsuresh3-2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p11original.c:44
-44  {
+Breakpoint 1, main () at p11original.c:43
+43  {
 (gdb) n
-45    int n=get_n();
+44    int n=get_n();
 (gdb) s
 get_n () at p11original.c:7
 7   {
@@ -37,102 +36,136 @@ Enter the no. of complex numbers:
 (gdb) n
 3
 11    return n;
+(gdb) p n
+$1 = 3
 (gdb) n
 12  }
 (gdb) n
-main () at p11original.c:46
-46    Complex r,c[n];
+main () at p11original.c:45
+45    Complex r,c[n];
 (gdb) n
-47    input_n_complex(n,c);
+46    input_n_complex(n,c);
 (gdb) s
-input_n_complex (n=3, c=0x7ffc533b7130) at p11original.c:16
-16    for (int i = 0; i < n; i++)
+input_n_complex (n=3, c=0x7ffdcb4db7d0) at p11original.c:15
+15    for (int i = 0; i < n; i++)
 (gdb) n
-18     printf("Enter the complex number:\n");
-(gdb) n
-Enter the complex number:
-19     scanf("%f%f",&c[i].real,&c[i].imaginary);
-(gdb) n
-2 3
-16    for (int i = 0; i < n; i++)
-(gdb) n
-18     printf("Enter the complex number:\n");
+17     printf("Enter the complex number:\n");
+(gdb) p i
+$2 = 0
 (gdb) n
 Enter the complex number:
-19     scanf("%f%f",&c[i].real,&c[i].imaginary);
+18     scanf("%f%f",&c[i].real,&c[i].imaginary);
+(gdb) n
+1 4
+15    for (int i = 0; i < n; i++)
+(gdb) n
+17     printf("Enter the complex number:\n");
+(gdb) p i
+$3 = 1
+(gdb) n
+Enter the complex number:
+18     scanf("%f%f",&c[i].real,&c[i].imaginary);
+(gdb) n
+3 5
+15    for (int i = 0; i < n; i++)
+(gdb) n
+17     printf("Enter the complex number:\n");
+(gdb) p i
+$4 = 2
+(gdb) n
+Enter the complex number:
+18     scanf("%f%f",&c[i].real,&c[i].imaginary);
 (gdb) n
 6 5
-16    for (int i = 0; i < n; i++)
+15    for (int i = 0; i < n; i++)
 (gdb) n
-18     printf("Enter the complex number:\n");
+20  }
 (gdb) n
-Enter the complex number:
-19     scanf("%f%f",&c[i].real,&c[i].imaginary);
+main () at p11original.c:47
+47    r=add_n_complex(n,c);
+(gdb) p c@n
+$5 = {{{real = 1, imaginary = 4}, {real = 3, imaginary = 5}, {real = 6, 
+      imaginary = 5}}, {{real = -1.98129601e+28, imaginary = 3.08257636e-41}, {
+      real = 0, imaginary = 0}, {real = 0, imaginary = 0}}, {{
+      real = 1.26116862e-44, imaginary = 0}, {real = -9.93290299e+23, 
+      imaginary = 4.20389539e-45}, {real = 2.80259693e-45, imaginary = 0}}}
+(gdb) s
+add_n_complex (n=3, c=0x7ffdcb4db7d0) at p11original.c:24
+24    temp.real=0;
 (gdb) n
-11 12
-16    for (int i = 0; i < n; i++)
+25    temp.imaginary=0;
 (gdb) n
-21  }
+26    for (int i = 0; i < n; i++)
+(gdb) n
+28      temp.real+=c[i].real;
+(gdb) p i
+$7 = 0
+(gdb) n
+29      temp.imaginary+=c[i].imaginary;
+(gdb) n
+26    for (int i = 0; i < n; i++)
+(gdb) p temp.real
+$8 = 1
+(gdb) p temp.imaginary
+$9 = 4
+(gdb) n
+28      temp.real+=c[i].real;
+(gdb) n
+29      temp.imaginary+=c[i].imaginary;
+(gdb) n
+26    for (int i = 0; i < n; i++)
+(gdb) p temp.real
+$10 = 4
+(gdb) p temp.imaginary
+$11 = 9
+(gdb) n
+28      temp.real+=c[i].real;
+(gdb) n
+29      temp.imaginary+=c[i].imaginary;
+(gdb) n
+26    for (int i = 0; i < n; i++)
+(gdb) p temp.real
+$12 = 10
+(gdb) p temp.imaginary
+$13 = 14
+(gdb) n
+31    return (temp);
+(gdb) n
+32  }
 (gdb) n
 main () at p11original.c:48
-48    r=add_n_complex(n,c);
+48    output(n,c,r);
 (gdb) s
-add_n_complex (n=3, c=0x7ffc533b7130) at p11original.c:25
-25    temp.real=0;
+output (n=3, c=0x7ffdcb4db7d0, r=...) at p11original.c:36
+36    for (i = 0; i < n-1; i++)
 (gdb) n
-26    temp.imaginary=0;
+38      printf("%f+i%f + ",c[i].real,c[i].imaginary);
 (gdb) n
-27    for (int i = 0; i < n; i++)
+36    for (i = 0; i < n-1; i++)
+(gdb) p i
+$14 = 0
 (gdb) n
-29      temp.real+=c[i].real;
+38      printf("%f+i%f + ",c[i].real,c[i].imaginary);
+(gdb) p i
+$15 = 1
 (gdb) n
-30      temp.imaginary+=c[i].imaginary;
+36    for (i = 0; i < n-1; i++)
 (gdb) n
-27    for (int i = 0; i < n; i++)
+40    printf("%f+i%f = %f+i%f",c[i].real,c[i].imaginary,r.real,r.imaginary);
+(gdb) p i
+$16 = 2
 (gdb) n
-29      temp.real+=c[i].real;
-(gdb) n
-30      temp.imaginary+=c[i].imaginary;
-(gdb) n
-27    for (int i = 0; i < n; i++)
-(gdb) n
-29      temp.real+=c[i].real;
-(gdb) n
-30      temp.imaginary+=c[i].imaginary;
-(gdb) n
-27    for (int i = 0; i < n; i++)
-(gdb) n
-32    return (temp);
-(gdb) n
-33  }
+41  }
 (gdb) n
 main () at p11original.c:49
-49    output(n,c,r);
-(gdb) s
-output (n=3, c=0x7ffc533b7130, r=...) at p11original.c:37
-37    for (i = 0; i < n-1; i++)
+49    return 0;
 (gdb) n
-39      printf("%f+i%f + ",c[i].real,c[i].imaginary);
+50  }
 (gdb) n
-37    for (i = 0; i < n-1; i++)
-(gdb) n
-39      printf("%f+i%f + ",c[i].real,c[i].imaginary);
-(gdb) n
-37    for (i = 0; i < n-1; i++)
-(gdb) n
-41    printf("%f+i%f = %f+i%f",c[i].real,c[i].imaginary,r.real,r.imaginary);
-(gdb) n
-42  }
-(gdb) n
-main () at p11original.c:50
-50    return 0;
-(gdb) n
-51  }
-(gdb) n
-__libc_start_main (main=0x557ad5e0099b <main>, argc=1, argv=0x7ffc533b72a8, 
+__libc_start_main (main=0x55eeee80099b <main>, argc=1, argv=0x7ffdcb4db948, 
     init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7ffc533b7298) at ../csu/libc-start.c:344
+    stack_end=0x7ffdcb4db938) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) n
-2.000000+i3.000000 + 6.000000+i5.000000 + 11.000000+i12.000000 = 19.000000+i20.000000[Inferior 1 (process 281) exited normally]
+1.000000+i4.000000 + 3.000000+i5.000000 + 6.000000+i5.000000 = 10.000000+i14.000000[Inferior 1 (process 339) exited normally]
 (gdb) q

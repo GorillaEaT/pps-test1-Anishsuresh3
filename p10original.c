@@ -3,7 +3,7 @@ typedef struct _complex
 {
   float real,imaginary;
 }Complex;
-Complex input_chellox()
+Complex input_complex()
 {
   Complex temp;
   printf("Enter the complex number:\n");
@@ -24,8 +24,8 @@ void output(Complex a, Complex b, Complex c)
 int main()
 {
   Complex c1,c2,r;
-  c1=input_chellox();
-  c2=input_chellox();
+  c1=input_complex();
+  c2=input_complex();
   r=add(c1,c2);
   output(c1,c2,r);
   return 0;

@@ -22,9 +22,9 @@ Starting program: /home/runner/pps-test1-Anishsuresh3-2/a.out
 warning: Error disabling address space randomization: Operation not permitted
 
 Breakpoint 1, main () at p10original.c:27
-27    c1=input_chellox();
+27    c1=input_complex();
 (gdb) s
-input_chellox () at p10original.c:7
+input_complex () at p10original.c:7
 7   {
 (gdb) n
 9     printf("Enter the complex number:\n");
@@ -32,29 +32,41 @@ input_chellox () at p10original.c:7
 Enter the complex number:
 10    scanf("%f%f",&temp.real,&temp.imaginary);
 (gdb) n
-2 3
+4 2
 11    return (temp);
+(gdb) p temp.real
+$1 = 4
+(gdb) p temp.imaginary
+$2 = 2
 (gdb) n
 12  }
 (gdb) n
 main () at p10original.c:28
-28    c2=input_chellox();
+28    c2=input_complex();
+(gdb) p c1
+$3 = {real = 4, imaginary = 2}
 (gdb) s
-input_chellox () at p10original.c:7
+input_complex () at p10original.c:7
 7   {
 (gdb) n
 9     printf("Enter the complex number:\n");
-(gdb) 
+(gdb) n
 Enter the complex number:
 10    scanf("%f%f",&temp.real,&temp.imaginary);
 (gdb) n
-4 5
+3 5
 11    return (temp);
+(gdb) p temp.real
+$4 = 3
+(gdb) p temp.imaginary
+$5 = 5
 (gdb) n
 12  }
 (gdb) n
 main () at p10original.c:29
 29    r=add(c1,c2);
+(gdb) p c2
+$6 = {real = 3, imaginary = 5}
 (gdb) s
 add (a=..., b=...) at p10original.c:16
 16      temp.real=a.real+b.real;
@@ -62,6 +74,10 @@ add (a=..., b=...) at p10original.c:16
 17      temp.imaginary=a.imaginary+b.imaginary;
 (gdb) n
 18      return (temp);
+(gdb) p temp.real
+$7 = 7
+(gdb) p temp.imaginary
+$8 = 7
 (gdb) n
 19  }
 (gdb) n
@@ -71,7 +87,7 @@ main () at p10original.c:30
 output (a=..., b=..., c=...) at p10original.c:22
 22      printf("%f+i%f + %f+i%f = %f+i%f\n",a.real,a.imaginary,b.real,b.imaginary,c.real,c.imaginary);
 (gdb) n
-2.000000+i3.000000 + 4.000000+i5.000000 = 6.000000+i8.000000
+4.000000+i2.000000 + 3.000000+i5.000000 = 7.000000+i7.000000
 23  }
 (gdb) n
 main () at p10original.c:31
@@ -79,3 +95,8 @@ main () at p10original.c:31
 (gdb) n
 32  }
 (gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 286] will be killed.
+
+Quit anyway? (y or n) y

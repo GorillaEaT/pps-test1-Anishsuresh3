@@ -1,5 +1,5 @@
 #include<stdio.h>
-//#include<math.h>
+#include<math.h>
 float input()
 {
   float f;
@@ -15,7 +15,7 @@ float my_sqrt1(float n)
 {
   float s=n/2;
   float t=0;
-  while (s!=t)
+  while (fabs(s-t) > 0.000001)
   {
     t=s;
     s=(n/t + t)/2;
