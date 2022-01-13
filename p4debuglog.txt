@@ -16,29 +16,13 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x82d: file p4original.c, line 28.
+Breakpoint 1 at 0x851: file p4original.c, line 32.
 (gdb) r
 Starting program: /home/runner/pps-test1-Anishsuresh3-2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p4original.c:28
-28    a=input();
-(gdb) s
-input () at p4original.c:3
-3   {
-(gdb) n
-5     printf("Enter the number\n");
-(gdb) n
-Enter the number
-6     scanf("%d",&a);
-(gdb) n
-5
-7     return a;
-(gdb) n
-8   }
-(gdb) n
-main () at p4original.c:29
-29    b=input();
+Breakpoint 1, main () at p4original.c:32
+32    a=input();
 (gdb) s
 input () at p4original.c:3
 3   {
@@ -50,11 +34,15 @@ Enter the number
 (gdb) n
 3
 7     return a;
+(gdb) p a
+$1 = 3
 (gdb) n
 8   }
 (gdb) n
-main () at p4original.c:30
-30    c=input();
+main () at p4original.c:33
+33    b=input();
+(gdb) p a
+$2 = 3
 (gdb) s
 input () at p4original.c:3
 3   {
@@ -64,15 +52,68 @@ input () at p4original.c:3
 Enter the number
 6     scanf("%d",&a);
 (gdb) n
-7
+2
 7     return a;
 (gdb) n
 8   }
+(gdb) p a
+$3 = 2
 (gdb) n
-main () at p4original.c:31
-31    printf("Largest value: %d\n",cmp(a,b,c));
+main () at p4original.c:34
+34    c=input();
+(gdb) p b
+$4 = 2
+(gdb) s
+input () at p4original.c:3
+3   {
 (gdb) n
-Largest value: 7
-32    return 0;
+5     printf("Enter the number\n");
 (gdb) n
-33  }(gdb) q
+Enter the number
+6     scanf("%d",&a);
+(gdb) n
+4
+7     return a;
+(gdb) n
+8   }
+(gdb) p a
+$5 = 4
+(gdb) n
+main () at p4original.c:35
+35    r=cmp(a,b,c);
+(gdb) p a
+$6 = 3
+(gdb) p b
+$7 = 2
+(gdb) p c
+$8 = 4
+(gdb) s
+cmp (a=3, b=2, c=4) at p4original.c:12
+12    if(a<b && c<b)
+(gdb) n
+14    else if(a<c)
+(gdb) n
+15       return c;
+(gdb) n
+18  }
+(gdb) n
+main () at p4original.c:36
+36    output(r);
+(gdb) p r
+$9 = 4
+(gdb) s
+output (l=4) at p4original.c:27
+27    printf("Largest value: %d\n",l);
+(gdb) n
+Largest value: 4
+28  }
+(gdb) n
+main () at p4original.c:37
+37    return 0;
+(gdb) n
+38  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 356] will be killed.
+
+Quit anyway? (y or n) y

@@ -28,39 +28,44 @@ Breakpoint 1, main () at p3original.c:16
 (gdb) n
 18    input(&a,&b);
 (gdb) s
-input (a=0x7ffddd55f0ec, b=0x7ffddd55f0f0) at p3original.c:4
+input (a=0x7ffd0dc5000c, b=0x7ffd0dc50010) at p3original.c:4
 4     printf("Enter two number:\n");
 (gdb) n
 Enter two number:
 5     scanf("%d%d",a,b);
 (gdb) n
-1 4
+2 3
 6   }
 (gdb) n
 main () at p3original.c:19
 19    add(a,b,&s);
+(gdb) p a
+$1 = 2
+(gdb) p b
+$2 = 3
 (gdb) s
-add (a=1, b=4, sum=0x7ffddd55f0f4) at p3original.c:9
+add (a=2, b=3, sum=0x7ffd0dc50014) at p3original.c:9
 9     *sum=a+b;
 (gdb) n
 10  }
 (gdb) n
 main () at p3original.c:20
 20    output(a,b,s);
+(gdb) p s
+$3 = 5
 (gdb) s
-output (a=1, b=4, sum=5) at p3original.c:13
-13    printf("sum of %d+%d is %d",a,b,sum);
+output (a=2, b=3, sum=5) at p3original.c:13
+13    printf("sum of %d+%d is %d\n",a,b,sum);
 (gdb) n
+sum of 2+3 is 5
 14  }
 (gdb) n
 main () at p3original.c:21
 21    return 0;
 (gdb) n
-22  }(gdb) n
-__libc_start_main (main=0x56180be007f4 <main>, argc=1, argv=0x7ffddd55f1e8, 
-    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7ffddd55f1d8) at ../csu/libc-start.c:344
-344 ../csu/libc-start.c: No such file or directory.
-(gdb) n
-sum of 1+4 is 5[Inferior 1 (process 457) exited normally]
-(gdb) q
+22  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 316] will be killed.
+
+Quit anyway? (y or n) y

@@ -1,5 +1,4 @@
-GNU bash, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
-gcc -g p2original.c
+ gcc -g p2original.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -30,50 +29,63 @@ input () at p2original.c:3
 (gdb) n
 5     scanf("%d",&q);
 (gdb) n
-2
+3
 6     return q;
+(gdb) p q
+$1 = 3
 (gdb) n
 7   }
 (gdb) n
 main () at p2original.c:21
 21    b=input();
+(gdb) p a
+$2 = 3
 (gdb) s
 input () at p2original.c:3
 3   {
 (gdb) n
 5     scanf("%d",&q);
 (gdb) n
-7
+4
 6     return q;
+(gdb) p q
+$3 = 4
 (gdb) n
 7   }
 (gdb) n
 main () at p2original.c:22
 22    s=add(a,b);
+(gdb) p b
+$4 = 4
+(gdb) p a
+$5 = 3
 (gdb) s
-add (x=2, y=7) at p2original.c:10
+add (x=3, y=4) at p2original.c:10
 10    int sum=x+y;
 (gdb) n
 11    return sum;
+(gdb) p sum
+$6 = 7
 (gdb) n
 12  }
 (gdb) n
 main () at p2original.c:23
 23    output(a,b,s);
+(gdb) p s
+$7 = 7
 (gdb) s
-output (c=2, d=7, sum=9) at p2original.c:15
-15    printf("sum of %d+%d is %d",c,d,sum);
+output (c=3, d=4, sum=7) at p2original.c:15
+15    printf("sum of %d+%d is %d\n",c,d,sum);
 (gdb) n
+sum of 3+4 is 7
 16  }
 (gdb) n
 main () at p2original.c:24
 24    return 0;
 (gdb) n
-25  }(gdb) n
-__libc_start_main (main=0x562a438007ac <main>, argc=1, argv=0x7ffeac2cbd28, 
-    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7ffeac2cbd18) at ../csu/libc-start.c:344
-344 ../csu/libc-start.c: No such file or directory.
-(gdb) n
-sum of 2+7 is 9[Inferior 1 (process 371) exited normally]
-(gdb) q
+25  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 207] will be killed.
+
+Quit anyway? (y or n) y

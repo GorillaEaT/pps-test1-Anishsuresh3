@@ -29,60 +29,102 @@ intput_n () at p6original.c:4
 (gdb) n
 6     scanf("%d",&n);
 (gdb) n
-3
+5
 7     return n;
+(gdb) p n
+$1 = 5
 (gdb) n
 8   }
 (gdb) n
 main () at p6original.c:27
 27    s=sum_n(n);
+(gdb) p n
+$2 = 5
 (gdb) s
-sum_n (n=3) at p6original.c:11
+sum_n (n=5) at p6original.c:11
 11    int i,sum=0;
 (gdb) n
-12    for(i=0;i<=n;i++)
+12    for(i=1;i<=n;i++)
 (gdb) n
 13      sum+=i;
-(gdb) p sum
-$1 = 0
-(gdb) n
-12    for(i=0;i<=n;i++)
-(gdb) p sum
-$2 = 0
-(gdb) n
-13      sum+=i;
-(gdb) n
-12    for(i=0;i<=n;i++)
-(gdb) n
-13      sum+=i;
-(gdb) p sum
+(gdb) p i
 $3 = 1
 (gdb) n
-12    for(i=0;i<=n;i++)
+12    for(i=1;i<=n;i++)
+(gdb) p sum
+$4 = 1
 (gdb) n
 13      sum+=i;
+(gdb) p i
+$5 = 2
 (gdb) n
-12    for(i=0;i<=n;i++)
+12    for(i=1;i<=n;i++)
+(gdb) p sum
+$6 = 3
+(gdb) n
+13      sum+=i;
+(gdb) p i
+$7 = 3
+(gdb) n
+12    for(i=1;i<=n;i++)
+(gdb) p sum
+$8 = 6
+(gdb) n
+13      sum+=i;
+(gdb) p i
+$9 = 4
+(gdb) n
+12    for(i=1;i<=n;i++)
+(gdb) p sum
+$10 = 10
+(gdb) n
+13      sum+=i;
+(gdb) p i
+$11 = 5
+(gdb) n
+12    for(i=1;i<=n;i++)
+(gdb) p sum
+$12 = 15
 (gdb) n
 14    return sum;
+(gdb) p i
+$13 = 6
 (gdb) p sum
-$4 = 6
+$14 = 15
 (gdb) n
 15  }
 (gdb) n
 main () at p6original.c:28
 28    output(n,s);
+(gdb) p s
+$15 = 15
 (gdb) s
-output (n=3, sum=6) at p6original.c:19
+output (n=5, sum=16) at p6original.c:19
+19    for(i=1;i<n;i++)
+(gdb) n
+20      printf("%d+",i);
+(gdb) p i
+$17 = 1
+(gdb) n
+19    for(i=1;i<n;i++)
+(gdb) n
+20      printf("%d+",i);
+(gdb) p i
+$18 = 2
+(gdb) n
+19    for(i=1;i<n;i++)
+(gdb) n
+20      printf("%d+",i);
+(gdb) p i
+$19 = 3
+(gdb) n
 19    for(i=1;i<n;i++)
 (gdb) n
 20      printf("%d+",i);
 (gdb) n
 19    for(i=1;i<n;i++)
-(gdb) n
-20      printf("%d+",i);
-(gdb) n
-19    for(i=1;i<n;i++)
+(gdb) p i
+$20 = 4
 (gdb) n
 21    printf("%d is %d",i,sum);
 (gdb) n
@@ -92,10 +134,10 @@ main () at p6original.c:29
 29    return 0;
 (gdb) n
 30  }(gdb) n
-__libc_start_main (main=0x55610a0007e5 <main>, argc=1, argv=0x7ffdcacf2908, 
+__libc_start_main (main=0x5613656007e5 <main>, argc=1, argv=0x7ffca929eaf8, 
     init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7ffdcacf28f8) at ../csu/libc-start.c:344
+    stack_end=0x7ffca929eae8) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) n
-1+2+3 is 6[Inferior 1 (process 702) exited normally]
+1+2+3+4+5 is 15[Inferior 1 (process 436) exited normally]
 (gdb) q

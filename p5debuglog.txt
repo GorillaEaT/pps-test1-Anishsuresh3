@@ -16,39 +16,60 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x838: file p5original.c, line 21.
+Breakpoint 1 at 0x85c: file p5original.c, line 25.
 (gdb) r
 Starting program: /home/runner/pps-test1-Anishsuresh3-2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p5original.c:21
-21  {
+Breakpoint 1, main () at p5original.c:25
+25  {
 (gdb) n
-23    input(&a,&b,&c);
+27    input(&a,&b,&c);
 (gdb) s
-input (a=0x7fff1cf95d28, b=0x7fff1cf95d2c, c=0x7fff1cf95d30) at p5original.c:4
+input (a=0x7fff9b888828, b=0x7fff9b88882c, c=0x7fff9b888830) at p5original.c:4
 4     printf("Enter the numbers:\n");
 (gdb) n
 Enter the numbers:
 5     scanf("%d%d%d",a,b,c);
 (gdb) n
-2 6 3
+3 2 4
 6   }
 (gdb) n
-main () at p5original.c:24
-24    cmp(a,b,c,&large);
+main () at p5original.c:28
+28    cmp(a,b,c,&large);
+(gdb) p a
+$2 = 3
+(gdb) p b
+$3 = 2
+(gdb) p c
+$4 = 4
 (gdb) s
-cmp (a=2, b=6, c=3, large=0x7fff1cf95d34) at p5original.c:9
+cmp (a=3, b=2, c=4, large=0x7fff9b888834) at p5original.c:9
 9     if(a<b && c<b)
 (gdb) n
-10      *large=b;
+11    else if(a<c)
+(gdb) n
+12      *large=c;
 (gdb) n
 15  }
 (gdb) n
-main () at p5original.c:25
-25    printf("Largest value: %d\n",large);
+main () at p5original.c:29
+29    output(large);
+(gdb) p large
+$5 = 4
+(gdb) s
+output (large=4) at p5original.c:22
+22    printf("Largest value: %d\n",large);
 (gdb) n
-Largest value: 6
-26    return 0;
+Largest value: 4
+23  }
 (gdb) n
-27  }(gdb) q
+main () at p5original.c:30
+30    return 0;
+(gdb) n
+31  }(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 396] will be killed.
+
+Quit anyway? (y or n) y
