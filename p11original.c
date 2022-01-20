@@ -10,12 +10,18 @@ int get_n()
   scanf("%d",&n);
   return n;
 }
+Complex input_complex()
+{
+  Complex k;
+  scanf("%f%f",&k.real,&k.imaginary);
+  return k;
+}
 void input_n_complex(int n, Complex c[n])
 {
   for (int i = 0; i < n; i++)
   {
    printf("Enter the complex number:\n");
-   scanf("%f%f",&c[i].real,&c[i].imaginary);
+   c[i]=input_complex();
   }
 }
 Complex add_n_complex(int n,Complex c[n])
