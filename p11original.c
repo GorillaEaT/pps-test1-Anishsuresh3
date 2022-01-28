@@ -27,8 +27,8 @@ void input_n_complex(int n, Complex c[n])
 Complex add_n_complex(int n,Complex c[n])
 {
   Complex temp;
-  temp.real=0;
-  temp.imaginary=0;
+  temp.real=0.0;
+  temp.imaginary=0.0;
   for (int i = 0; i < n; i++)
   {
     temp.real+=c[i].real;
